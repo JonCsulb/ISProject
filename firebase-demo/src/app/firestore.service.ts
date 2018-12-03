@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators'
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
 
 export interface Board {
-  id?: string
+  id: string
   author: string
   description: string
   title: string
@@ -19,9 +19,11 @@ export class FirestoreService {
   private boardCollection: AngularFirestoreCollection<Board>
 
   constructor(private afs: AngularFirestore) {
-    this.boardCollection = afs.collection<Board>('books')
+    this.boardCollection = afs.collection<Board>('Book')
   }
 
+
+  
   getBoards(): Observable<Board[]> {
     return this.boardCollection.snapshotChanges().pipe(
       map(actions =>
@@ -33,6 +35,13 @@ export class FirestoreService {
       ),
     )
   }
+
+
+
+
+
+
+
 
   getBoard(id: string): Observable<any> {
     return this.boardCollection.doc(id).valueChanges()
