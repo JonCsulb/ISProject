@@ -6,10 +6,10 @@ import { map } from 'rxjs/operators'
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
 
 export interface Board {
-  id: string
-  author: string
-  description: string
-  title: string
+  id?: string
+  Name: string
+  Email: string
+  Phone: string
 }
 
 @Injectable({
@@ -19,11 +19,9 @@ export class FirestoreService {
   private boardCollection: AngularFirestoreCollection<Board>
 
   constructor(private afs: AngularFirestore) {
-    this.boardCollection = afs.collection<Board>('Book')
+    this.boardCollection = afs.collection<Board>('Contact')
   }
 
-
-  
   getBoards(): Observable<Board[]> {
     return this.boardCollection.snapshotChanges().pipe(
       map(actions =>
@@ -35,13 +33,6 @@ export class FirestoreService {
       ),
     )
   }
-
-
-
-
-
-
-
 
   getBoard(id: string): Observable<any> {
     return this.boardCollection.doc(id).valueChanges()
