@@ -11,6 +11,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   templateUrl: './boards-create.component.html',
   styleUrls: ['./boards-create.component.css'],
 })
+
 export class BoardsCreateComponent implements OnInit {
   boardsForm: FormGroup
   Name = ''
@@ -24,11 +25,13 @@ export class BoardsCreateComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.boardsForm = this.formBuilder.group({
+    this.boardsForm = this.formBuilder.group(
+      {
       Name: [null, Validators.required],
-      Email: [null, [Validators.required, Validators.email],
-      Phone: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(10)],
-    })
+      Email: [null, [Validators.required, Validators.email]],
+      Phone: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(10)]]
+      }
+      )
   }
 
   onFormSubmit() {
@@ -43,7 +46,11 @@ export class BoardsCreateComponent implements OnInit {
       },
     )
   }
+  
 }
+
+
+
 
 /**
  * What is a constructor
