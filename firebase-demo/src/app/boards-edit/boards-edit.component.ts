@@ -26,8 +26,8 @@ export class BoardsEditComponent implements OnInit {
     this.getBoard(this.route.snapshot.params['id'])
     this.boardsForm = this.formBuilder.group({
       Name: [null, Validators.required],
-      Email: [null, Validators.required],
-      Phone: [null, Validators.required],
+      Email: [null, [Validators.required , Validators.email]],
+      Phone: [null, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
     })
   }
 

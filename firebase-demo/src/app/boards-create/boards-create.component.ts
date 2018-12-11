@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, APP_BOOTSTRAP_LISTENER } from '@angular/core'
 
 import { Router } from '@angular/router'
 import { Board, FirestoreService } from '../firestore.service'
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms'
+import { componentFactoryName } from '@angular/compiler';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-boards-create',
@@ -24,8 +26,8 @@ export class BoardsCreateComponent implements OnInit {
   ngOnInit() {
     this.boardsForm = this.formBuilder.group({
       Name: [null, Validators.required],
-      Email: [null, Validators.required],
-      Phone: [null, Validators.required],
+      Email: [null, [Validators.required, Validators.email],
+      Phone: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(10)],
     })
   }
 
@@ -42,3 +44,14 @@ export class BoardsCreateComponent implements OnInit {
     )
   }
 }
+
+/**
+ * What is a constructor
+the relation ship between app module, app html, app component
+what is ngmodule for, declarations, imports, providers, booststrap,
+HttpClientModule (import http client module in app module,
+                   import into ngmodule 
+                   import http client to app component toString
+                   constructor private httpclient :HttpClient
+                   )
+  */

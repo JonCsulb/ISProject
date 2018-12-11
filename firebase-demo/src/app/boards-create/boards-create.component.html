@@ -5,27 +5,51 @@
 
 <form class="example-form" [formGroup]="boardsForm" (ngSubmit)="onFormSubmit()">
   <mat-form-field class="example-full-width">
+
     <input matInput placeholder="Name" formControlName="Name" />
     <mat-error>
+
+
       <span *ngIf="!boardsForm.get('Name').valid && boardsForm.get('Name').touched">
+
+
         Please enter Name
       </span>
+
+
+
     </mat-error>
   </mat-form-field>
+
   <mat-form-field class="example-full-width">
     <textarea matInput placeholder="Email" formControlName="Email"></textarea>
     <mat-error>
+
+
       <span *ngIf="!boardsForm.get('Email').valid && boardsForm.get('Email').touched">
         Please enter Email
       </span>
+<!-- 
+    *ngIf = "!boardsForm.get('Email').valid && boardsForm.get ('Email').touched && Validators.required, Validators.email"
+-->
+
+
+
+
     </mat-error>
   </mat-form-field>
+
   <mat-form-field class="example-full-width">
+
     <input matInput placeholder="Phone" formControlName="Phone" />
     <mat-error>
+
+
       <span *ngIf="!boardsForm.get('Phone').valid && boardsForm.get('Phone').touched">
         Please enter Board Phone
       </span>
+
+
     </mat-error>
   </mat-form-field>
   <div class="button-row">
