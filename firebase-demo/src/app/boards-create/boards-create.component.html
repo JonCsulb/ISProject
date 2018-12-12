@@ -27,7 +27,7 @@
 
 
       <span *ngIf="!boardsForm.get('Email').valid && boardsForm.get('Email').touched">
-        Please enter Email
+        Please enter Email with an @ and .com
       </span>
 <!-- 
     *ngIf = "!boardsForm.get('Email').valid && boardsForm.get ('Email').touched && Validators.required, Validators.email"
@@ -41,12 +41,12 @@
 
   <mat-form-field class="example-full-width">
 
-    <input matInput placeholder="Phone" formControlName="Phone" />
+    <input  matInput placeholder="Phone" formControlName="Phone" />
     <mat-error>
 
 
       <span *ngIf="!boardsForm.get('Phone').valid && boardsForm.get('Phone').touched">
-        Please enter Board Phone
+        Please enter 10 numnbers only
       </span>
 
 
