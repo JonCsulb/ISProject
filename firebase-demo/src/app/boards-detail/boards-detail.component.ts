@@ -38,4 +38,13 @@ export class BoardsDetailComponent implements OnInit {
       },
     )
   }
+
+  /**  alertBoard (item:any){
+    let dialogRef = this.dialog.open(ItemDialogComponent, {
+      height: '400px',
+      width: '600px'
+    })  */
+
+
+
 }

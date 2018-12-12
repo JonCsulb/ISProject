@@ -29,7 +29,7 @@ export class BoardsCreateComponent implements OnInit {
       {
       Name: [null, Validators.required],
       Email: [null, [Validators.required, Validators.email]],
-      Phone: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(10)]]
+      Phone: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(10)], Validators.pattern('^[0-9]')] /** Need to figure out how to do form validators for numbers */
       }
       )
   }

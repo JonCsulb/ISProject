@@ -11,8 +11,19 @@
     <div>{{ board.Email }}</div>
     <div>{{ board.Phone }}</div>
   </mat-card-content>
+
+
+
   <mat-card-actions>
     <a mat-fab color="primary" [routerLink]="['/boards-edit', id]"><mat-icon>edit</mat-icon></a>
+
+
+
+      <!-- Need to insert a warning module when user clicks on delete "deleteBoard(id)" -->
     <a mat-fab color="warn" (click)="deleteBoard(id)"><mat-icon>delete</mat-icon></a>
+
+
+
+
   </mat-card-actions>
 </mat-card>
